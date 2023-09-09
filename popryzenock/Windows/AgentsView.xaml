@@ -3,10 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:popryzenock.Windows"
+      xmlns:local="clr-namespace:popryzenock.Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AgentsView">
+    
+    <Page.Resources>
+        <sys:String x:Key="defaultImage">
+            pack://application:,,,/Resources/picture.png
+        </sys:String>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -49,28 +55,23 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="270"/>
-                                <ColumnDefinition Width="280"/>
-                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="430"/>                                
+                                <ColumnDefinition Width="*"/>
+                                
 
 
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="5">
-                                <Image Width="180" Height="100" Margin="5" Source="{Binding ImgPath, FallbackValue={StaticResource defaultImage}}"/>
+                                <Image Width="180" Height="100" Margin="5" Source="{Binding defaultImage, FallbackValue={StaticResource defaultImage}}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Margin="5">
                                 <TextBlock Text=" " />
-                                <TextBlock Text="{Binding AgentType, StringFormat='Тип агента:{0} |'}" />
+                                <TextBlock Text="{Binding AgentTypeIDi, StringFormat='Тип агента: {0} '}" />
                                 <TextBlock Text="{Binding SaleYear, StringFormat='Продаж за год: {0} '}" />                                
                                 <TextBlock Text="{Binding Phone}" />
                                 <TextBlock Text="{Binding Priorirty, StringFormat='Приоритетность: {0}'}" />
                             </StackPanel>
-                            <StackPanel Grid.Column="2" Margin="5">
-                                <TextBlock Text=" " />
-                                <TextBlock Text="{Binding Title}" />
-
-                            </StackPanel>
+                       
                             <StackPanel Grid.Column="3" Margin="5">
                                 <TextBlock Text=""/>
                                 <TextBlock Text=""/>

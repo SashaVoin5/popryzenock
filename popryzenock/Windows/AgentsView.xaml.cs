@@ -54,9 +54,9 @@ namespace popryzenock.Windows
         
         public void Load()
         {
-            agentView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.ID).Skip(start * 10).Take(10).ToList();
-            fullCount = popryzenockEntities.GetContext().Agent.Count();
-            full.Text = fullCount.ToString() + " агентов";
+            DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.ID).Skip(start * 10).Take(10).ToList();
+            //fullCount = popryzenockEntities.GetContext().Agent.Count();
+            //full.Text = fullCount.ToString() + " агентов";
 
         }
 

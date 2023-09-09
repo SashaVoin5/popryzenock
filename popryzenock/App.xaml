@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:popryzenock"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#43DCFE"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
          
     </Application.Resources>
 </Application>

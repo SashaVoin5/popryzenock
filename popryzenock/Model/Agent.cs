@@ -41,5 +41,22 @@ namespace popryzenock.Model
         public virtual ICollection<ProductSale> ProductSale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop> Shop { get; set; }
+        public string AgentTypeIDi
+        {
+            get
+            {
+                string Name = "";
+                if (this.AgentTypeID == AgentType.ID)
+                {
+                    Name = AgentType.Title + " | Наименование агента: " + this.Title;                    
+                    return Name;
+                }
+                else
+                {
+                    return Name;
+                }
+
+            }
+        }
     }
 }
