@@ -11,7 +11,8 @@ namespace popryzenock.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Agent
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,7 @@ namespace popryzenock.Model
             this.ProductSale = new HashSet<ProductSale>();
             this.Shop = new HashSet<Shop>();
         }
-    
+
         public int ID { get; set; }
         public int AgentTypeID { get; set; }
         public string Title { get; set; }
@@ -33,7 +34,7 @@ namespace popryzenock.Model
         public string DirectorName { get; set; }
         public string INN { get; set; }
         public string KPP { get; set; }
-    
+
         public virtual AgentType AgentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgentPriorityHistory> AgentPriorityHistory { get; set; }
@@ -48,7 +49,7 @@ namespace popryzenock.Model
                 string Name = "";
                 if (this.AgentTypeID == AgentType.ID)
                 {
-                    Name = AgentType.Title + " | Наименование агента: " + this.Title;                    
+                    Name = AgentType.Title + " | Наименование агента: " + this.Title;
                     return Name;
                 }
                 else
@@ -58,5 +59,36 @@ namespace popryzenock.Model
 
             }
         }
+        public string ImagePath
+        {
+            get
+            {
+                var Path = "\\Resources\\" + this.Logo;
+                return Path;
+            }
+        }
+        public string PriorirtyNumber
+        {
+            get
+            {
+                var Pr = Convert.ToInt32(this.Priority);
+                var PrConvertd = Convert.ToString(Pr);
+                return PrConvertd;
+            }
+        }
+        /*
+        public string YearSale
+        {
+            get
+            {
+                string saleYear = "";
+
+
+            }
+        }
+        */
+        
+
+
     }
 }

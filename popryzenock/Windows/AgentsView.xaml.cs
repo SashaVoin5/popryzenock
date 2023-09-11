@@ -23,13 +23,16 @@ namespace popryzenock.Windows
     public partial class AgentsView : Page
     {
         private int start = 0;
-       
+
         private int fullCount = 0;
+
+        private int order = 0;
 
         public AgentsView(Frame frame)
         {
             InitializeComponent();
             Load();
+            ComboSort.ItemsSource = SortingList;
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -51,14 +54,48 @@ namespace popryzenock.Windows
         {
 
         }
-        
+
         public void Load()
         {
-            DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.ID).Skip(start * 10).Take(10).ToList();
-            //fullCount = popryzenockEntities.GetContext().Agent.Count();
-            //full.Text = fullCount.ToString() + " агентов";
+            try
+            {
+                fullCount = popryzenockEntities.GetContext().Agent.Count();
+                if (order == 0) DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.ID).ToList();
+                if (order == 1) DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Title).ToList();
+                if (order == 2) DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Title).ToList();
+                if (order == 3) DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Priority).ToList();
+                if (order == 4) DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Priority).ToList();
+
+            }
+            catch
+            {
+                return;
+            };
+
+           
 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            order = ComboSort.SelectedIndex;            
+            Load();
+
+
+        }
+        public string[] SortingList { get; set; } =
+        {
+            "Без сортировки",
+            "По возрастанию названия",
+            "По убыванию названия",
+            "По возастанию приоритета",
+            "По убыванию приоритета"
+
+
+
+        };
+
+
 
     }
 }
