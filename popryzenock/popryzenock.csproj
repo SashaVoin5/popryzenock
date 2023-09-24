@@ -125,6 +125,12 @@
     <Compile Include="Windows\AgentsView.xaml.cs">
       <DependentUpon>AgentsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CreateNewAgent.xaml.cs">
+      <DependentUpon>CreateNewAgent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\editAgent.xaml.cs">
+      <DependentUpon>editAgent.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,6 +144,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\AgentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateNewAgent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\editAgent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

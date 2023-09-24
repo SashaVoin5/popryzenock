@@ -15,7 +15,7 @@ namespace popryzenock.Model
     
     public partial class popryzenockEntities : DbContext
     {
-        public static popryzenockEntities context;
+        private static popryzenockEntities context;
         public popryzenockEntities()
             : base("name=popryzenockEntities")
         {

@@ -21,42 +21,55 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+
+        
+
+
+
+
+
+
+
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
+            
         </Grid>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <TextBlock x:Name="Serach" >
-
-            </TextBlock>
-            <ComboBox x:Name="ComboSort" SelectionChanged="ComboBox_SelectionChanged" >
-
-            </ComboBox>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="updateButton" Height="auto" Width="250"  Content="Редактировать" Click="updateButton_Click"/>
+            <Button x:Name="deleteButton" Height="auto" Width="250" Content="Удалить" Click="deleteButton_Click" />
+            <Button x:Name="addButton" Height="auto" Width="250"  Content="Добавить" Click="addButton_Click" />
+            
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock Text="Всего записей: "/>
+            <TextBlock Text="" x:Name="full"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Width="auto">
+            <Button x:Name="back" Content="B" Click="Button_Click" IsEnabled="False" Height="30" Width="20"></Button>
+            <StackPanel x:Name="pagin" Orientation="Horizontal" HorizontalAlignment="Stretch" Width="auto"></StackPanel>
+            <Button x:Name="forward" Content="F" Click="Button_Click1" Height="30" Width="20"></Button>
         </StackPanel>
 
 
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="updateButton" Height="auto" Width="auto" Grid.Column="0" Content="Редактировать" Click="updateButton_Click"/>
-            <Button x:Name="deleteButton" Height="auto" Width="auto" Grid.Column="1" Content="Удалить" Click="deleteButton_Click" />
-            <Button x:Name="addButton" Height="auto" Width="auto" Grid.Column="2" Content="Добавить" Click="addButton_Click" />
-            <Button x:Name="revButton" Height="auto" Width="auto" Grid.Column="3" Content="Обновить" Click="revButton_Click" />
-        </Grid>
-        
-        
-        
 
 
-        <ListView x:Name="DataView" Grid.Row="1" Grid.Column="0" d:ItemsSource="{d:SampleData ItemCount=3}"  >
+
+        <ListView x:Name="DataView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" d:ItemsSource="{d:SampleData ItemCount=3}" MouseDown="agent_MouseDown"  >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -64,15 +77,13 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1">
+                    <Border BorderBrush="Black" BorderThickness="1" Background="{Binding Background}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="430"/>                                
                                 <ColumnDefinition Width="*"/>
                                 
-
-
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="5">
                                 <Image Width="180" Height="100" Margin="5" Source="{Binding ImagePath, FallbackValue={StaticResource defaultImage}}"/>
@@ -80,7 +91,7 @@
                             <StackPanel Grid.Column="1" Margin="5">
                                 <TextBlock Text=" " />
                                 <TextBlock Text="{Binding AgentTypeIDi, StringFormat='Тип агента: {0} '}" />
-                                <TextBlock Text="{Binding SaleYears, StringFormat='Продаж за год: {0} '}" />                                
+                                <TextBlock Text="{Binding SaleYear, StringFormat='Продаж за год: {0} '}" />                                
                                 <TextBlock Text="{Binding Phone}" />
                                 <TextBlock Text="{Binding PriorirtyNumber, StringFormat='Приоритетность: {0}'}" />
                             </StackPanel>
@@ -89,7 +100,7 @@
                                 <TextBlock Text=""/>
                                 <TextBlock Text=""/>
 
-                                <TextBlock Text="{Binding PercentSale}" FontSize="16" FontWeight="Bold" />
+                                <TextBlock Text="{Binding PersenteSale}" FontSize="16" FontWeight="Bold" />
                                 
                             </StackPanel>
                            
@@ -103,7 +114,31 @@
 
         </ListView>
 
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
+            <TextBox x:Name="Search" Text="" TextChanged="TextBox_TextChanged">
+                
+            </TextBox>
+            
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
+            <ComboBox x:Name="ComboSort"   SelectionChanged="ComboBox_SelectionChanged" >
+
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="3" Margin="5">
+            <ComboBox x:Name="ComboFilt" SelectionChanged="ComboBoxFilter_SelectionChanged">
+                
+            </ComboBox>
+        </StackPanel>
+
+
+
+
 
     </Grid>
+    
     
 </Page>
