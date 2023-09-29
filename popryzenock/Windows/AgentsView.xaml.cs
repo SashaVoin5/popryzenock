@@ -146,7 +146,23 @@ namespace popryzenock.Windows
                         DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.ID).ToList().Skip(start * 10).Take(10);
                         var countData = countData1.Count();
                         full.Text = countData.ToString();
-                   
+                    ost = countData % 10;
+                    pag = (countData - ost) / 10;
+                    if (ost > 0) pag++;
+                    pagin.Children.Clear();
+                    for (int i = 0; i < pag; i++)
+                    {
+                        Button myButton = new Button();
+                        myButton.Height = 30;
+                        myButton.Content = i + 1;
+                        myButton.Width = 20;
+                        myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                        myButton.Tag = i;
+                        myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                        pagin.Children.Add(myButton);
+                    }
+                    turnButton();
+
 
 
                 }
@@ -158,15 +174,47 @@ namespace popryzenock.Windows
                         
                         var countData = popryzenockEntities.GetContext().Agent.Where(p => p.AgentTypeID == Filter).Count();
                         full.Text = countData.ToString();
-                       
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                     }
                     else
                     {
                         DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Title).ToList().Skip(start * 10).Take(10);
                         var countData = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Title).Count();
                         full.Text = countData.ToString();
-                       
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
+
                     }
 
                 }
@@ -178,14 +226,46 @@ namespace popryzenock.Windows
                         
                         var countData = popryzenockEntities.GetContext().Agent.Where(p => p.AgentTypeID == Filter).Count();
                         full.Text = countData.ToString();
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                     }
                     else
                     {
                         DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Title).ToList().Skip(start * 10).Take(10);
                         var countData = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Title).Count();
                         full.Text = countData.ToString();
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                     }
 
                 }
@@ -197,14 +277,46 @@ namespace popryzenock.Windows
                         
                         var countData = popryzenockEntities.GetContext().Agent.Where(p => p.AgentTypeID == Filter).Count();
                         full.Text = countData.ToString();
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                     }
                     else
                     {
                         DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Priority).ToList().Skip(start * 10).Take(10);
                         var countData = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Priority).Count();
                         full.Text = countData.ToString();
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                     }
 
                 }
@@ -216,10 +328,26 @@ namespace popryzenock.Windows
                         //Рабочий момент
                         var countData = popryzenockEntities.GetContext().Agent.Where(p => p.AgentTypeID == Filter).Count();
                         full.Text = countData.ToString();
-                        
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
 
-                       
+
+
+
 
 
                     }
@@ -228,7 +356,23 @@ namespace popryzenock.Windows
                         DataView.ItemsSource = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Priority).ToList().Skip(start * 10).Take(10);
                         var countData = popryzenockEntities.GetContext().Agent.OrderByDescending(Agent => Agent.Priority).Count();
                         full.Text = countData.ToString();
-                        
+                        ost = countData % 10;
+                        pag = (countData - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
 
                     }
 
@@ -251,7 +395,23 @@ namespace popryzenock.Windows
                         Filter = -1;
                         var countData = popryzenockEntities.GetContext().Agent.Where(p => p.AgentTypeID == Filter).Count();
                         full.Text = countData.ToString();
-                   
+                    ost = countData % 10;
+                    pag = (countData - ost) / 10;
+                    if (ost > 0) pag++;
+                    pagin.Children.Clear();
+                    for (int i = 0; i < pag; i++)
+                    {
+                        Button myButton = new Button();
+                        myButton.Height = 30;
+                        myButton.Content = i + 1;
+                        myButton.Width = 20;
+                        myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                        myButton.Tag = i;
+                        myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                        pagin.Children.Add(myButton);
+                    }
+                    turnButton();
+
 
                 }
                 
@@ -270,6 +430,22 @@ namespace popryzenock.Windows
 
                             var countData = data.Count();
                             full.Text = countData.ToString();
+                            ost = countData % 10;
+                            pag = (countData - ost) / 10;
+                            if (ost > 0) pag++;
+                            pagin.Children.Clear();
+                            for (int i = 0; i < pag; i++)
+                            {
+                                Button myButton = new Button();
+                                myButton.Height = 30;
+                                myButton.Content = i + 1;
+                                myButton.Width = 20;
+                                myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                                myButton.Tag = i;
+                                myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                                pagin.Children.Add(myButton);
+                            }
+                            turnButton();
                         }
 
 
@@ -287,6 +463,22 @@ namespace popryzenock.Windows
                             
                             var countData = data.Count();
                             full.Text = countData.ToString();
+                            ost = countData % 10;
+                            pag = (countData - ost) / 10;
+                            if (ost > 0) pag++;
+                            pagin.Children.Clear();
+                            for (int i = 0; i < pag; i++)
+                            {
+                                Button myButton = new Button();
+                                myButton.Height = 30;
+                                myButton.Content = i + 1;
+                                myButton.Width = 20;
+                                myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                                myButton.Tag = i;
+                                myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                                pagin.Children.Add(myButton);
+                            }
+                            turnButton();
                         }
 
                     }
@@ -296,7 +488,23 @@ namespace popryzenock.Windows
                         var serach = popryzenockEntities.GetContext().Agent.OrderBy(Agent => Agent.Priority).Where(Agent => Agent.Title.Contains(fnd) || Agent.Phone.Contains(fnd) || Agent.Email.Contains(fnd)).ToList().Skip(start * 10).Take(10);
                         DataView.ItemsSource = serach;
                         full.Text = serachCount.ToString();
-                        
+                        ost = serachCount % 10;
+                        pag = (serachCount - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
+
                         if (Filter > 0)
                         {
                             var data = popryzenockEntities.GetContext().Agent.Where(Agent => Agent.AgentTypeID == Filter && Agent.Title.Contains(fnd) || Agent.Phone.Contains(fnd) || Agent.Email.Contains(fnd)).ToList().Skip(start * 10).Take(10);
@@ -304,6 +512,22 @@ namespace popryzenock.Windows
                             
                             var countData = data.Count();
                             full.Text = countData.ToString();
+                            ost = countData % 10;
+                            pag = (countData - ost) / 10;
+                            if (ost > 0) pag++;
+                            pagin.Children.Clear();
+                            for (int i = 0; i < pag; i++)
+                            {
+                                Button myButton = new Button();
+                                myButton.Height = 30;
+                                myButton.Content = i + 1;
+                                myButton.Width = 20;
+                                myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                                myButton.Tag = i;
+                                myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                                pagin.Children.Add(myButton);
+                            }
+                            turnButton();
                         }
 
                     }
@@ -320,6 +544,22 @@ namespace popryzenock.Windows
                             
                             var countData = data.Count();
                             full.Text = countData.ToString();
+                            ost = countData % 10;
+                            pag = (countData - ost) / 10;
+                            if (ost > 0) pag++;
+                            pagin.Children.Clear();
+                            for (int i = 0; i < pag; i++)
+                            {
+                                Button myButton = new Button();
+                                myButton.Height = 30;
+                                myButton.Content = i + 1;
+                                myButton.Width = 20;
+                                myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                                myButton.Tag = i;
+                                myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                                pagin.Children.Add(myButton);
+                            }
+                            turnButton();
                         }
 
                     }
@@ -329,6 +569,22 @@ namespace popryzenock.Windows
                         var ag = popryzenockEntities.GetContext().Agent.Where(Agent => Agent.Title.Contains(fnd) || Agent.Phone.Contains(fnd) || Agent.Email.Contains(fnd)).ToList();
                         DataView.ItemsSource = ag;
                         full.Text = agCount.ToString();
+                        ost = agCount % 10;
+                        pag = (agCount - ost) / 10;
+                        if (ost > 0) pag++;
+                        pagin.Children.Clear();
+                        for (int i = 0; i < pag; i++)
+                        {
+                            Button myButton = new Button();
+                            myButton.Height = 30;
+                            myButton.Content = i + 1;
+                            myButton.Width = 20;
+                            myButton.HorizontalAlignment = HorizontalAlignment.Center;
+                            myButton.Tag = i;
+                            myButton.Click += new RoutedEventHandler(paginButto_Click); ;
+                            pagin.Children.Add(myButton);
+                        }
+                        turnButton();
                     }
                            
                 }
@@ -459,3 +715,22 @@ namespace popryzenock.Windows
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Created by Pleshkov PR-20.101
